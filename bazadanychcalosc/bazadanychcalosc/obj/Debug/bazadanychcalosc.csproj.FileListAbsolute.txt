@@ -1,0 +1,9 @@
+c:\users\grzej\documents\visual studio 2013\Projects\bazadanychcalosc\bazadanychcalosc\bin\Debug\bazadanychcalosc.exe.config
+c:\users\grzej\documents\visual studio 2013\Projects\bazadanychcalosc\bazadanychcalosc\obj\Debug\bazadanychcalosc.csprojResolveAssemblyReference.cache
+c:\users\grzej\documents\visual studio 2013\Projects\bazadanychcalosc\bazadanychcalosc\obj\Debug\bazadanychcalosc.Form1.resources
+c:\users\grzej\documents\visual studio 2013\Projects\bazadanychcalosc\bazadanychcalosc\obj\Debug\bazadanychcalosc.Properties.Resources.resources
+c:\users\grzej\documents\visual studio 2013\Projects\bazadanychcalosc\bazadanychcalosc\obj\Debug\bazadanychcalosc.csproj.GenerateResource.Cache
+c:\users\grzej\documents\visual studio 2013\Projects\bazadanychcalosc\bazadanychcalosc\bin\Debug\bazadanychcalosc.exe
+c:\users\grzej\documents\visual studio 2013\Projects\bazadanychcalosc\bazadanychcalosc\bin\Debug\bazadanychcalosc.pdb
+c:\users\grzej\documents\visual studio 2013\Projects\bazadanychcalosc\bazadanychcalosc\obj\Debug\bazadanychcalosc.exe
+c:\users\grzej\documents\visual studio 2013\Projects\bazadanychcalosc\bazadanychcalosc\obj\Debug\bazadanychcalosc.pdb
