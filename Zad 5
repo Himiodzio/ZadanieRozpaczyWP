@@ -2,11 +2,13 @@
 #include <string>
 #include <set>
 
+use namespace std;
+
 class CUser
 {
 private:
-    std::string m_sLogin;
-    std::string m_sPassword;
+   string m_sLogin;
+   string m_sPassword;
     int m_iLogCount;
     int m_iLogFailCount;
 public:
@@ -16,9 +18,8 @@ public:
     const char * getName() const;
     void logout();
     int getLogCount() const;
-    int getLogFailCount() const;
-   
-}; //class CUser
+    int getLogFailCount() const;   
+}; 
 
 class CUsers
 {
@@ -29,7 +30,7 @@ public:
     CUser * create( const char * sLogin, const char * sPassword );
     CUser * find( const char * sLogin ) const;
    
-}; //class CUsers
+}; 
 
 class CUser_Facade
 {
@@ -45,7 +46,7 @@ public:
     void logout();
     int getLogCount() const;
     int getLogFailCount() const;
-}; //class CUser_Facade
+}; 
 
 void printDetails( const CUser_Facade & facade )
 {
