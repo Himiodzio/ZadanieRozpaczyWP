@@ -93,7 +93,7 @@ class MainApi{
  
    public void lockHome(){
  
-      System.out.println("------ LOCK HOME -----");
+      System.out.println(" DOM ZAMKNIETY");
       livingRoomLight.off();
       hallLight.off();
       mainDoor.lock();
@@ -102,7 +102,7 @@ class MainApi{
  
    public void unlockHome(){
  
-      System.out.println("------ UNLOCK HOME -----");
+      System.out.println("DOM ODBLOKOWANY");
       hallLight.on();
       mainDoor.unlock();
       garageDoor.unlock();
@@ -110,14 +110,14 @@ class MainApi{
  
    public void lightOff(){
  
-      System.out.println("------ LIGHT OFF -----");
+      System.out.println(" SWIATLO WYLACZONE");
       livingRoomLight.off();
       hallLight.off();
    }
  
    public void lightOn(){
  
-      System.out.println("------ LIGHT ON -----");
+      System.out.println("SWIATLO WLACZONE");
       livingRoomLight.on();
       hallLight.on();
    }
