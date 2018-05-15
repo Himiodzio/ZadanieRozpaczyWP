@@ -1,0 +1,64 @@
+#include <iostream>
+
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+class L {
+	public: 
+	int wiek = 0;
+	
+	L* next = NULL;
+	L (int wiekk) {
+		wiek = wiekk;
+	}
+};
+ 
+class Singleton {
+	private:
+		static Singleton* instance;
+		L *start = NULL;
+		L *curr = NULL;
+		int ile = 0;
+		
+	public:
+		static Singleton* getInstance() {
+			if (instance == NULL) {
+				instance = new Singleton;
+			}
+			
+			return instance;
+		}
+		
+		Singleton* dodaj(int wiek) {
+			if (start == NULL) {
+				start = new L(wiek);
+			} else {
+				*curr = *start;
+				while (curr->next != NULL) {
+					curr = curr->next;
+				}
+				curr = new L(wiek);
+			}
+			
+			ile++;
+			
+			return this;
+		}
+		
+		void wyswietl() {
+			curr = start;
+			while (curr != NULL) {
+				std::cout << curr->wiek << std::endl;
+				curr = curr->next;  
+			}
+		}
+};
+
+int main(int argc, char** argv) {
+	Singleton ob = Singleton::getInstance();
+	ob->dodaj(10);
+	ob->wyswietl();
+	
+	cin >> int i;
+	
+	return 0;
+}
