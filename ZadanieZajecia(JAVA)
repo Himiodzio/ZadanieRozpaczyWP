@@ -16,14 +16,10 @@ interface Door{
  
 class HallLight implements Light{
  
-   @Override
    public void on(){
- 
       System.out.println("Hall light on.");
  
    }
- 
-   @Override
    public void off(){
  
       System.out.println("Hall light off.");
@@ -32,14 +28,10 @@ class HallLight implements Light{
 }
  
 class LivingRoomLight implements Light{
- 
-   @Override
    public void on(){
  
       System.out.println("Living room light on.");
    }
- 
-   @Override
    public void off(){
  
       System.out.println("Living room light off.");
@@ -47,26 +39,22 @@ class LivingRoomLight implements Light{
 }
  
 class MainDoor implements Door{
- 
-   @Override
+
    public void open(){
  
       System.out.println("Main door open.");
    }
- 
-   @Override
+
    public void close(){
  
       System.out.println("Main door close.");
    }
- 
-   @Override
+
    public void lock(){
  
       System.out.println("Main door lock.");
    }
- 
-   @Override
+
    public void unlock(){
  
       System.out.println("Main door unlock.");
@@ -74,26 +62,22 @@ class MainDoor implements Door{
 }
  
 class GarageDoor implements Door{
- 
-   @Override
+
    public void open(){
  
       System.out.println("Garage door open.");
    }
- 
-   @Override
+
    public void close(){
  
       System.out.println("Garage door close.");
    }
- 
-   @Override
+
    public void lock(){
  
       System.out.println("Garage door lock.");
    }
- 
-   @Override
+
    public void unlock(){
  
       System.out.println("Garage door unlock.");
