@@ -1,0 +1,194 @@
+#include <cstdio>
+#include <string>
+#include <set>
+
+class CUser
+{
+private:
+    std::string m_sLogin;
+    std::string m_sPassword;
+    int m_iLogCount;
+    int m_iLogFailCount;
+public:
+    CUser( const char * sLogin, const char * sPassword = "" );
+    bool operator <( const CUser & user ) const;
+    bool checkPassword( const char * sPassword );
+    const char * getName() const;
+    void logout();
+    int getLogCount() const;
+    int getLogFailCount() const;
+   
+}; //class CUser
+
+class CUsers
+{
+private:
+    typedef std::set < CUser > UsersT;
+    UsersT m_users;
+public:
+    CUser * create( const char * sLogin, const char * sPassword );
+    CUser * find( const char * sLogin ) const;
+   
+}; //class CUsers
+
+class CUser_Facade
+{
+private:
+    CUsers & m_db;
+    CUser * m_pUser;
+public:
+    CUser_Facade( CUsers & users );
+    bool create( const char * sLogin, const char * sPassword );
+    bool login( const char * sLogin, const char * sPassword );
+    bool isLogged() const;
+    const char * getName() const;
+    void logout();
+    int getLogCount() const;
+    int getLogFailCount() const;
+}; //class CUser_Facade
+
+void printDetails( const CUser_Facade & facade )
+{
+    if( !facade.isLogged() )
+    {
+        printf( "User is not logged.\n" );
+        return;
+    } //if
+   
+    printf( "Login = \"%s\"; Success login = %d; Failed login = %d;\n", facade.getName(), facade.getLogCount(), facade.getLogFailCount() );
+}
+
+int main()
+{
+    CUsers users;
+   
+    CUser_Facade me( users );
+    me.create( "DejaVu", "123" );
+    printDetails( me );
+    me.logout();
+    printDetails( me );
+    me.login( "DejaVu", "22" );
+    me.login( "DejaVu", "11" );
+    printDetails( me );
+    me.login( "DejaVu", "123" );
+    printDetails( me );
+   
+    return 0;
+}
+
+CUser::CUser( const char * sLogin, const char * sPassword )
+    : m_sLogin( sLogin )
+    , m_sPassword( sPassword )
+    , m_iLogCount( 0 )
+    , m_iLogFailCount( 0 )
+{
+}
+
+bool CUser::checkPassword( const char * sPassword )
+{
+    if( m_sPassword == sPassword )
+    {
+        m_iLogCount++;
+        return true;
+    } //if
+   
+    m_iLogFailCount++;
+    return false;
+}
+
+bool CUser::operator <( const CUser & user ) const
+{
+    return m_sLogin.compare( user.m_sLogin ) < 0;
+}
+
+const char * CUser::getName() const
+{
+    return m_sLogin.c_str();
+}
+
+int CUser::getLogCount() const
+{
+    return m_iLogCount;
+}
+
+int CUser::getLogFailCount() const
+{
+    return m_iLogFailCount;
+}
+
+CUser * CUsers::create( const char * sLogin, const char * sPassword )
+{
+    std::pair < UsersT::iterator, bool > result = m_users.insert( CUser( sLogin, sPassword ) );
+    if( result.second == false )
+         return NULL;
+   
+    return const_cast < CUser *>( &( * result.first ) );
+}
+
+CUser * CUsers::find( const char * sLogin ) const
+{
+    UsersT::const_iterator itFound = m_users.find( sLogin );
+    if( itFound != m_users.end() )
+         return const_cast < CUser *>( &( * itFound ) );
+   
+    return NULL;
+}
+
+CUser_Facade::CUser_Facade( CUsers & users )
+    : m_db( users )
+    , m_pUser( NULL )
+{
+}
+
+bool CUser_Facade::isLogged() const
+{
+    return m_pUser ? true: false;
+}
+
+bool CUser_Facade::create( const char * sLogin, const char * sPassword )
+{
+    m_pUser = m_db.create( sLogin, sPassword );
+    return m_pUser ? true: false;
+}
+
+bool CUser_Facade::login( const char * sLogin, const char * sPassword )
+{
+    m_pUser = m_db.find( sLogin );
+    if( !m_pUser )
+         return false;
+   
+    if( m_pUser->checkPassword( sPassword ) )
+         return true;
+   
+    m_pUser = NULL;
+    return false;
+}
+
+const char * CUser_Facade::getName() const
+{
+    if( !m_pUser )
+         return NULL;
+   
+    return m_pUser->getName();
+}
+
+void CUser_Facade::logout()
+{
+    m_pUser = NULL;
+}
+
+int CUser_Facade::getLogCount() const
+{
+    if( !m_pUser )
+         return - 1;
+   
+    return m_pUser->getLogCount();
+}
+
+int CUser_Facade::getLogFailCount() const
+{
+    if( !m_pUser )
+         return - 1;
+   
+    return m_pUser->getLogFailCount();
+}
