@@ -1,0 +1,10 @@
+C:\Users\mukesh\Desktop\Work\EventAndDelegateExamples\FactoryDesignPattern\FactoryDesignPattern\obj\Debug\FactoryDesignPattern.csprojResolveAssemblyReference.cache
+C:\Users\mukesh\Desktop\Work\EventAndDelegateExamples\FactoryDesignPattern\FactoryDesignPattern\bin\Debug\FactoryDesignPattern.exe
+C:\Users\mukesh\Desktop\Work\EventAndDelegateExamples\FactoryDesignPattern\FactoryDesignPattern\bin\Debug\FactoryDesignPattern.pdb
+C:\Users\mukesh\Desktop\Work\EventAndDelegateExamples\FactoryDesignPattern\FactoryDesignPattern\obj\Debug\FactoryDesignPattern.exe
+C:\Users\mukesh\Desktop\Work\EventAndDelegateExamples\FactoryDesignPattern\FactoryDesignPattern\obj\Debug\FactoryDesignPattern.pdb
+G:\Pobrane\Nowy folder\C#\FactoryDesignPattern\obj\Debug\FactoryDesignPattern.exe
+G:\Pobrane\Nowy folder\C#\FactoryDesignPattern\obj\Debug\FactoryDesignPattern.pdb
+G:\Pobrane\Nowy folder\C#\FactoryDesignPattern\bin\Debug\FactoryDesignPattern.exe
+G:\Pobrane\Nowy folder\C#\FactoryDesignPattern\bin\Debug\FactoryDesignPattern.pdb
+G:\Pobrane\Nowy folder\C#\FactoryDesignPattern\obj\Debug\FactoryDesignPattern.csprojResolveAssemblyReference.cache
